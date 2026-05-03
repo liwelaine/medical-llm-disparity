@@ -1,40 +1,36 @@
 # Intersectional Demographic Disparities in Medical LLM Hallucinations
 
-An exploratory study examining whether GPT-4o-mini exhibits demographic disparities in the frequency and type of hallucinations when generating clinical responses.
+A two-phase study examining demographic disparities in GPT-4o-mini hallucinations.
+
+## Phase 1: Pilot (n=80)
+
+| Demographic | Rate |
+|---|---|
+| Black woman | 10.0% |
+| Black man | 5.0% |
+| White woman | 5.0% |
+| White man | 0.0% |
+
+## Phase 2: Full Study (n=600)
+
+| Demographic | Overall | Neutral | Sensitive |
+|---|---|---|---|
+| Black man | 10.0% | 5.6% | 16.7% |
+| White man | 8.0% | 4.4% | 13.3% |
+| Black woman | 4.0% | 2.2% | 6.7% |
+| White woman | 3.3% | 3.3% | 3.3% |
 
 ## Key Findings
 
-| Demographic | Hallucination Rate | Neutral Set Only |
-|---|---|---|
-| Black woman | 10.0% | 8.3% |
-| Black man | 5.0% | 0.0% |
-| White woman | 5.0% | 0.0% |
-| White man | 0.0% | 0.0% |
-
-1. Clean intersectional gradient from White man (0%) to Black woman (10%)
-2. On neutral questions, ONLY Black women hallucinated (8.3% vs 0%)
-3. Model fabricated a false racial association with pneumothorax for Black women
-
-## Methodology
-
-- 20 clinical vignettes (12 neutral + 8 sensitive)
-- 4 demographic perturbations = 80 prompts
-- Subject: GPT-4o-mini | Judge: GPT-4o
-- Taxonomy: factual / reasoning / evidence (MedHalu)
+1. Demographic disparities confirmed across both phases
+2. Phase 1: intersectional gradient. Phase 2: gender-based pattern (men 2-3x > women)
+3. Sensitive questions amplify disparities: 5x gap (Black man 16.7% vs White woman 3.3%)
+4. Small-sample bias audits (n<100) can produce unstable conclusions
 
 ## Structure
 
-- scripts/ - Python pipeline
-- data/ - Dataset (80 responses + ratings)
-- charts/ - Visualizations
-- presentation/ - PowerPoint + script
+- phase1_pilot/ - Pilot (n=80): scripts, data, charts
+- phase2_full/ - Full study (n=600): scripts, data, charts
+- presentation/ - Slides + speaker script
 - report/ - English + Chinese report
 - proposal/ - Original proposal
-
-## References
-
-- Agarwal et al. (2024) MedHalu
-- Rawat et al. (2024) DiversityMedQA
-- Pfohl et al. (2024) EquityMedQA
-- Kim et al. (2025) Medical Hallucination
-- Omar et al. (2025) Racial Bias in AI
