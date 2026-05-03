@@ -1,0 +1,8 @@
+.openai_key
+openai_key.sh
+*.key
+.env
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
